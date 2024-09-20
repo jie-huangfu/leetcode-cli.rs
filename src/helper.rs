@@ -212,14 +212,15 @@ mod file {
         }
 
         let mut path = format!(
-            "{}/{}.{}",
+            "{}/lc_{}.{}",
             conf.storage.code()?,
             conf.code.pick,
             suffix(&lang)?,
         );
+        let _fid = format!("{:0>4}", problem.fid);
 
-        path = path.replace("${fid}", &problem.fid.to_string());
-        path = path.replace("${slug}", &problem.slug.to_string());
+        path = path.replace("${fid}", &_fid); //&problem.fid.to_string());
+        path = path.replace("-${slug}", ""); //&problem.slug.to_string());
 
         Ok(path)
     }
