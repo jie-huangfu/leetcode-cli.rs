@@ -187,6 +187,7 @@ mod file {
             "scala" => Ok("scala"),
             "swift" => Ok("swift"),
             "typescript" => Ok("ts"),
+            "dart" => Ok("dart"),
             _ => Ok("c"),
         }
     }
