@@ -51,6 +51,13 @@ impl Storage {
     pub fn code(&self) -> Result<String> {
         let root = &self.root()?;
         let p = PathBuf::from(root).join(&self.code);
+        // jie: this is fucking stupid! 
+        // why join "root" and "code"?
+
+        println!("root: {}, \nroot+code: {}", 
+            root, 
+            p.as_path().to_str().unwrap());
+
         if !PathBuf::from(&p).exists() {
             fs::create_dir(&p)?
         }

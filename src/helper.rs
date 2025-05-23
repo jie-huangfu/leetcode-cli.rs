@@ -212,9 +212,12 @@ mod file {
             lang = l.ok_or(Error::NoneError)?;
         }
 
+        let storage_path = conf.storage.code()?;
+        println!("{}", storage_path);
+
         let mut path = format!(
             "{}/lc_{}.{}",
-            conf.storage.code()?,
+            storage_path, 
             conf.code.pick,
             suffix(&lang)?,
         );
